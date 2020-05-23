@@ -29,4 +29,14 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 
 model.fit(xtrain, ytrain,epochs=1)
 
-pred1= model.evaluate
+pred1= model.evaluate(xtest,ytest)
+
+print("Accuracy : ", pred1[1]*100)
+
+try:
+	f=open("/newdir/o.txt","w")
+	f.write(str(int(pred1[1]*100)))
+except:
+	print(end="")
+finally:
+	f.close()
